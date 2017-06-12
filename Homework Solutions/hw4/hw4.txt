@@ -1,0 +1,26 @@
+CS161 Homework 4 
+Spring 2017 
+
+The graph extacted from graph1.txt is unsatisfiable with 3 colors. 
+However, the graph converted into a SAT Instance with 4 colors is solvable.
+
+These results mean that there must be 4 or more colors to 
+successfully color the graph. Another interesting fact is that 
+this is also the maximum degree of any vertex in the graph. 
+
+An example solution for graph1 is as follows: 
+
+Let there be four colors: RED, YELLOW, GREEN, BLUE. 
+
+Color Node 1 RED.
+Color Node 2 YELLOW.
+Color Node 5 GREEN.
+Color Node 6 BLUE.
+Color Node 7 GREEN. 
+Color Node 3 RED. 
+Color Node 4 YELLOW. 
+
+This is one solution. 
+
+The graph extracted from graph2.txt is much more massive. It requires
+8 more or colors to be a satisfiable instance. 

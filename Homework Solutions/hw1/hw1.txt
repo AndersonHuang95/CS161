@@ -1,0 +1,104 @@
+CS161 Homework 1
+
+1) Sample execution of PAD (first 10 values): 
+
+(PAD 1) 
+1
+
+(PAD 2)
+1
+
+(PAD 3) 
+2
+
+(PAD 4) 
+2
+
+(PAD 5)
+3
+
+(PAD 6)
+4
+
+(PAD 7)
+5
+
+(PAD 8)
+7
+
+(PAD 9)
+9
+
+(PAD 10)
+12
+
+Executing PAD on large values of N, even say N = 20, stalls program execution.
+The functon as is, is naively defined. PAD repeatedly calculates smaller PAD 
+values instead of caching them when they have already been calculated. For example, 
+take the function call (PAD 10). (PAD 10) will call (PAD 8) and (PAD 7), and
+both these sub-calls will call (PAD 5). This is a waste of computation, since
+it will have already been calculated by one of the subtrees. Consequently,
+the recursion tree is very large and the runtime is exponential with N. It does 
+not take long for the runtime to become prohibitive. 
+
+2) Sample execution of SUMS (first 10 values): 
+
+(SUMS 1) 
+0
+
+(SUMS 2) 
+0
+
+(SUMS 3) 
+1
+
+(SUMS 4) 
+1
+
+(SUMS 5) 
+2
+
+(SUMS 6) 
+3
+
+(SUMS 7) 
+4
+
+(SUMS 8) 
+6
+
+(SUMS 9) 
+8
+
+(SUMS 10) 
+11
+
+(SUMS N) = (PAD N) - 1.
+The reasons why this relationship holds is because the base case of the recursion 
+happens when (PAD 0), (PAD 1), or (PAD 2) are called. These values equal 1. Therefore, 
+each non-trivial Padovan number is the sum of 1's. For each of these non-base case 
+numbers, the number of 1's is simply (PAD N), but the number of additions is (PAD N) - 1. 
+
+3) Sample execution for ANON for given test cases: 
+
+(ANON '42)
+?
+
+(ANON 'FOO)
+?
+
+(ANON '((L E) F T))
+(((? ?) ?) ?)
+
+(ANON '(5 FOO 3.1 -0.2))
+(? ? ? ?)
+
+(ANON '(1 (FOO 3.1) -0.2))
+(? (? ?) ?)
+
+(ANON '(((1 2) (FOO 3.1)) (BAR -0.2)))
+(((? ?) (? ?)) (? ?))
+
+(ANON '(R (I (G (H T)))))
+(? (? (? (? ?))))
+
